@@ -16,6 +16,12 @@ public struct SharinganView: View {
     @State private var tomoe1Opacity: Double = 0
     @State private var tomoe2Opacity: Double = 0
     
+    public init(diameter: CGFloat, animationDuration: Double = 1, showingLoader: Binding<Bool>) {
+        self.diameter = diameter
+        self.animationDuration = animationDuration
+        _showingLoader = showingLoader
+    }
+    
     public var body: some View {
         ZStack {
             Color.black
