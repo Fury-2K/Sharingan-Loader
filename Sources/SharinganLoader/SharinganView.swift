@@ -11,24 +11,24 @@ public struct SharinganView: View {
     var diameter: CGFloat
     var animationDuration: Double = 1
     
-    @Binding var showingLoader: Bool
+//    @Binding var showingLoader: Bool
     @State private var rotationDegree: Double = 0
     @State private var tomoe1Opacity: Double = 0
     @State private var tomoe2Opacity: Double = 0
     
-    public init(diameter: CGFloat, animationDuration: Double = 1, showingLoader: Binding<Bool>) {
+    public init(diameter: CGFloat, animationDuration: Double = 1){//}, showingLoader: Binding<Bool>) {
         self.diameter = diameter
         self.animationDuration = animationDuration
-        _showingLoader = showingLoader
+//        _showingLoader = showingLoader
     }
     
     public var body: some View {
         ZStack {
             Color.black
                 .opacity(0.5)
-                .onTapGesture {
-                    showingLoader.toggle()
-                }
+//                .onTapGesture {
+//                    showingLoader.toggle()
+//                }
                 .ignoresSafeArea()
             
             Circle()
@@ -93,5 +93,11 @@ public struct SharinganView: View {
             }
             .rotationEffect(.degrees(rotationDegree))
         }
+    }
+}
+
+struct SharinganView_Previews: PreviewProvider {
+    static var previews: some View {
+        SharinganView(diameter: 150)//, showingLoader: <#T##Binding<Bool>#>)
     }
 }
