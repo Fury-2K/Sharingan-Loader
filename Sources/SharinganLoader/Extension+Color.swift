@@ -9,4 +9,5 @@ import SwiftUI
 
 extension Color {
     static let shariRed = Color("shariRed")
+    static let black = Color("black")
 }
