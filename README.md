@@ -22,7 +22,7 @@ This is a fun project created using SwiftUI with love for the Uchiha clan.
 
 ## How to use?
 
-<img align="left" src="/Resources/sharingan_loader.gif" height="500">
+<img align="right" src="/Resources/sharingan_loader.gif" height="500">
 
 ```swift
 SharinganLoader(diameter: CGFloat, showingLoader: Binding<Bool>)
