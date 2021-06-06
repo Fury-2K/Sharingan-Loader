@@ -25,13 +25,13 @@ This is a fun project created using SwiftUI with love for the Uchiha clan.
 <img align="right" src="/Resources/sharingan_loader.gif" height="500">
 
 ```swift
-SharinganView(diameter: 150,
+SharinganLoader(diameter: 150,
               animationDuration: 1, 
               backgroundDarkness: 0.2, 
               isVisible: $showingLoader)
 
 The initializer is like - 
-SharinganView(diameter: CGFloat,
+SharinganLoader(diameter: CGFloat,
               animationDuration: Double,
               backgroundDarkness: Double,
               isVisible: Binding<Bool>)
