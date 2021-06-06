@@ -5,9 +5,9 @@ This is a fun project created using SwiftUI with love for the Uchiha clan.
 
 ![platform](https://img.shields.io/badge/platform-iOS-orange)
 [![GitHub license](https://img.shields.io/badge/License-Apache2.0-blue.svg)](LICENSE)
-![Repository size](https://img.shields.io/github/repo-size/Fury-2K/Ripple)
-![GitHub stars](https://img.shields.io/github/stars/Fury-2K/Ripple?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Fury-2K/Ripple?style=social)
+![Repository size](https://img.shields.io/github/repo-size/Fury-2K/Sharingan-Loader)
+![GitHub stars](https://img.shields.io/github/stars/Fury-2K/Sharingan-Loader?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Fury-2K/Sharingan-Loader?style=social)
 ![GitHub follow](https://img.shields.io/github/followers/Fury-2K?style=social)
 
 ## What's New ?
@@ -18,19 +18,16 @@ This is a fun project created using SwiftUI with love for the Uchiha clan.
 - Swift
 
 
-**The project is built supporting iOS 14 and above**
+**The project is built supporting iOS 14 and above.**
 
-## How to use ?
+## How to use?
 
-<img align="center" src="/Resources/sharingan_loader.gif" width="500"><br><br>
+<img align="left" src="/Resources/sharingan_loader.gif" height="500">
 
 ```swift
 SharinganLoader(diameter: CGFloat, showingLoader: Binding<Bool>)
 ```
-
-or simply create a button and add this as one of its modifiers - 
-`.buttonStyle(RippleButtonStyle(with: <insert Color>))`
-This has the following properties to help customize -
+This has the following properties to help customize -<br>
 ```swift
 var animationDuration: Double = 1
 ```
