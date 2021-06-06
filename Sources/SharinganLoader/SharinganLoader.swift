@@ -1,5 +1,5 @@
 //
-//  SharinganView.swift
+//  SharinganLoader.swift
 //  ShariganLoader
 //
 //  Created by Manas Aggarwal on 28/05/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct SharinganView: View {
+public struct SharinganLoader: View {
     /// Diameter of the sharingan eye.
     var diameter: CGFloat
     /// Time taken for the eye to complete 1 full rotation.
@@ -23,7 +23,7 @@ public struct SharinganView: View {
     
     // MARK: - Initialization
     
-    public init(diameter: CGFloat,
+    public init(diameter: CGFloat = 100,
                 animationDuration: Double = 1,
                 backgroundDarkness: Double = 0.2,
                 isVisible: Binding<Bool>) {
