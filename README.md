@@ -17,12 +17,20 @@ This is a fun project created using SwiftUI with love for the Uchiha clan.
 - SwiftUI
 - Swift
 
-
 **The project is built supporting iOS 14 and above.**
 
 ## How to use?
-
 <img align="right" src="/Resources/sharingan_loader.gif" height="500">
+
+First add the project using Swift Package Manager like this - 
+```
+dependencies: [
+    .package(url: "https://github.com/Fury-2K/Sharingan-Loader.git", from: "0.1.3")
+]
+```
+In the codebase you can do the following to use the loader -<br>
+1) Add `import SharinganLoader`<br>
+2) Use the following code to embed the loader.<br>
 
 ```swift
 SharinganLoader(diameter: 150,
