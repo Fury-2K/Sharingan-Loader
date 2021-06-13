@@ -11,6 +11,14 @@ Feel free to create an issue for suggestions or feature requests.
 ![GitHub forks](https://img.shields.io/github/forks/Fury-2K/Sharingan-Loader?style=social)&nbsp;
 ![GitHub follow](https://img.shields.io/github/followers/Fury-2K?style=social)
 
+<p><b> 
+The mangekyou sharingan is awakened after 4x `animationDuration`. 
+</b></p>
+
+Sharingan | Mangekyou Sharingan
+--- | ---
+<img align="right" src="/Resources/img1.png" width="280"> | <img align="right" src="/Resources/img2.png" width="280">
+
 ## What's New ?
 - [v0.2.0] Sharingan loader with Mangekyou transformation.
 - [v0.1.3] Sharingan loader with 3 tomoe. 
@@ -71,15 +79,6 @@ var shouldTransformToMangekyou: Bool
 - **backgroundDarkness**- This is the intensity of darkness behind the loader. 0 being the lowest and 1 being the highest. *This has a default value of 0.2.*
 - **isVisible**- This is the binding boolean which shows the loading indicator view if set to true and vic versa.
 - **shouldTransformToMangekyou**- This sets if the mangekyou sharingan will awaken or not.
-
-<p><b> 
-The mangekyou sharingan is awakened after 4x `animationDuration`. 
-</b></p>
-
-Sharingan | Mangekyou Sharingan
---- | ---
-<img align="right" src="/Resources/img1.png" width="280"> | <img align="right" src="/Resources/img2.png" width="280">
---- | ---
 
 ## Looking to contribute?
 - Feel free to add other loaders related to the anime.
