@@ -26,18 +26,21 @@ public struct SharinganLoader: View {
     
     private var bounceIntensity: CGFloat
     private var oldDiameterValue: CGFloat
+    private var shouldTransformToMangekyou: Bool
     
     // MARK: - Initialization
     
     public init(diameter: CGFloat = 100,
                 animationDuration: Double = 1,
                 backgroundDarkness: Double = 0.2,
-                isVisible: Binding<Bool>) {//,
+                isVisible: Binding<Bool>,
+                shouldTransformToMangekyou: Bool = true) {//,
 //                repeatMangekyouAnimation: Bool = true) {
         self.diameter = diameter
         self.animationDuration = animationDuration
         self.backgroundDarkness = backgroundDarkness
         self._isVisible = isVisible
+        self.shouldTransformToMangekyou = shouldTransformToMangekyou
         self.repeatMangekyouAnimation = false//repeatMangekyouAnimation
         
         self.bounceIntensity = diameter * 0.3
@@ -121,7 +124,9 @@ public struct SharinganLoader: View {
                     .onAppear() {
                         addRotationAnimation()
                         transformToMangekyou()
-                        addMangekyouSpringAnimation()
+                        if shouldTransformToMangekyou {
+                            addMangekyouSpringAnimation()
+                        }
                     }
                     .rotationEffect(.degrees(rotationDegree))
                 }

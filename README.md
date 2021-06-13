@@ -12,7 +12,7 @@ Feel free to create an issue for suggestions or feature requests.
 ![GitHub follow](https://img.shields.io/github/followers/Fury-2K?style=social)
 
 ## What's New ?
-- [v0.2.0] Sharingan loader with Mangekyou transformation
+- [v0.2.0] Sharingan loader with Mangekyou transformation.
 - [v0.1.3] Sharingan loader with 3 tomoe. 
  
 ## Languages / Frameworks Used
@@ -22,7 +22,7 @@ Feel free to create an issue for suggestions or feature requests.
 **The project is built supporting iOS 14 and above.**
 
 ## How to use?
-<img align="right" src="/Resources/sharingan_loader.gif" height="500">
+<img align="right" src="/Resources/mangekyou.gif" height="500">
 
 First add the project using Swift Package Manager like this - 
 ```
@@ -38,13 +38,15 @@ In the codebase you can do the following to use the loader -<br>
 SharinganLoader(diameter: 150,
               animationDuration: 1, 
               backgroundDarkness: 0.2, 
-              isVisible: $showingLoader)
+              isVisible: $showingLoader,
+              shouldTransformToMangekyou: true)
 
 The initializer is like - 
 SharinganLoader(diameter: CGFloat,
               animationDuration: Double,
               backgroundDarkness: Double,
-              isVisible: Binding<Bool>)
+              isVisible: Binding<Bool>,
+              shouldTransformToMangekyou: Bool)
 ```
 This has the following properties to help customize -<br>
 ```swift
@@ -58,12 +60,26 @@ var animationDuration: Double
 /// Range => 0 to 1
 var backgroundDarkness: Double
 
+/// Binding var to toggle loader visibility.
 @Binding var isVisible: Bool
+
+/// Toggle to allow mangekyou sharingan awakening.
+var shouldTransformToMangekyou: Bool
 ```
 - **diameter**- Diameter aka width and height for the sharingan eye. *This has a default value of 100.*
 - **animationDuration**- As the name suggests, is used for animation duration for the loader view. *This is set to a default value of 1 seconds.*
 - **backgroundDarkness**- This is the intensity of darkness behind the loader. 0 being the lowest and 1 being the highest. *This has a default value of 0.2.*
 - **isVisible**- This is the binding boolean which shows the loading indicator view if set to true and vic versa.
+- **shouldTransformToMangekyou**- This sets if the mangekyou sharingan will awaken or not.
+
+<p><b> 
+The mangekyou sharingan is awakened after 4x `animationDuration`. 
+</b></p>
+
+Sharingan | Mangekyou Sharingan
+--- | ---
+<img align="right" src="/Resources/img1.png" width="280"> | <img align="right" src="/Resources/img2.png" width="280">
+--- | ---
 
 ## Looking to contribute?
 - Feel free to add other loaders related to the anime.
