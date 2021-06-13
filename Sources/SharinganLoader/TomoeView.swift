@@ -18,6 +18,7 @@ struct Tomoe: Shape {
         var path = Path()
         
         // MARK:- Shit tomoe 1
+        
         //            path.move(to: CGPoint(x: 260, y: 280))
         //            path.addArc(center: CGPoint(x: 200, y: 200), radius: 100, startAngle: .degrees(53), endAngle: .degrees(330), clockwise: false)
         //            path.addArc(center: CGPoint(x: 114, y: 251), radius: 200, startAngle: .degrees(-30), endAngle: .degrees(9), clockwise: false)
@@ -27,6 +28,7 @@ struct Tomoe: Shape {
         //            path.closeSubpath()
         
         // MARK:- Shit tomoe 2
+        
         //        path.move(to: CGPoint(x: rect.midX, y: rect.minY))
         //        path.addQuadCurve(to: CGPoint(x: rect.maxX, y: rect.midY), control: CGPoint(x: rect.maxX, y: rect.minY))
         //        path.addQuadCurve(to: CGPoint(x: rect.midX * 0.8, y: rect.maxY), control: CGPoint(x: rect.maxX * 0.95, y: rect.maxY))
@@ -36,24 +38,25 @@ struct Tomoe: Shape {
         //        path.addQuadCurve(to: CGPoint(x: rect.midX, y: rect.minY), control: CGPoint(x: rect.midX * 0.65, y: rect.midY * 0.05))
         
         // MARK:- Real tomoe
+        
         path.move(to: isMangekyou ?
-                    CGPoint(x: rect.midX * 0.75, y: rect.midY) :
+                    CGPoint(x: rect.midX * 0.75, y: rect.midY * 1) :
                     CGPoint(x: rect.midX * 1.3, y: rect.midY * 0.6))
         
         path.addQuadCurve(
             to: isMangekyou ?
-                CGPoint(x: rect.midX * 1.91, y: rect.maxY * 0.7) :
+                CGPoint(x: rect.maxX * 0.99, y: rect.maxY * 0.6) :
                 CGPoint(x: rect.midX * 0.5, y: rect.maxY * 1.05),
             control: isMangekyou ?
-                CGPoint(x: rect.maxX * 0.7, y: rect.midY * 1.9) :
+                CGPoint(x: rect.maxX * 0.7, y: rect.maxY * 0.2) :
                 CGPoint(x: rect.maxX * 1, y: rect.midY * 1.35))
         
         path.addQuadCurve(
             to: isMangekyou ?
-                CGPoint(x: rect.midX * 1.15, y: rect.midY * 0.7) :
+                CGPoint(x: rect.midX * 1.14, y: rect.midY * 1.2) :
                 CGPoint(x: rect.midX * 0.8, y: rect.midY * 0.6),
             control: isMangekyou ?
-                CGPoint(x: rect.midX * 1.3, y: rect.midY * 1.6) :
+                CGPoint(x: rect.midX * 1.4, y: rect.midY * 0.8) :
                 CGPoint(x: rect.midX * 1.45, y: rect.midY * 1.2))
         return path
     }

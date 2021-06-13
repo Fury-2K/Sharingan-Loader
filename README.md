@@ -1,17 +1,19 @@
 # Sharingan Loader for iOS
 Animated sharingan loader for iOS projects.
-This is a fun project created using SwiftUI with love for the Uchiha clan. 
+This is a fun project created using SwiftUI with love for the Uchiha clan. More types of eyes to come with tons of customizations...<br>
+Feel free to create an issue for suggestions or feature requests.
 
 
-![platform](https://img.shields.io/badge/platform-iOS-orange)
-[![GitHub license](https://img.shields.io/badge/License-Apache2.0-blue.svg)](LICENSE)
-![Repository size](https://img.shields.io/github/repo-size/Fury-2K/Sharingan-Loader)
-![GitHub stars](https://img.shields.io/github/stars/Fury-2K/Sharingan-Loader?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Fury-2K/Sharingan-Loader?style=social)
+![platform](https://img.shields.io/badge/platform-iOS-orange)&nbsp;
+[![GitHub license](https://img.shields.io/badge/License-Apache2.0-blue.svg)](LICENSE)&nbsp;
+![Repository size](https://img.shields.io/github/repo-size/Fury-2K/Sharingan-Loader)&nbsp;
+![GitHub stars](https://img.shields.io/github/stars/Fury-2K/Sharingan-Loader?style=social)&nbsp;
+![GitHub forks](https://img.shields.io/github/forks/Fury-2K/Sharingan-Loader?style=social)&nbsp;
 ![GitHub follow](https://img.shields.io/github/followers/Fury-2K?style=social)
 
 ## What's New ?
-- Sharingan loader with 3 tomoe.
+- [v0.2.0] Sharingan loader with Mangekyou transformation
+- [v0.1.3] Sharingan loader with 3 tomoe. 
  
 ## Languages / Frameworks Used
 - SwiftUI
@@ -52,7 +54,8 @@ var diameter: CGFloat
 /// Time taken for the eye to complete 1 full rotation.
 var animationDuration: Double
 
-/// Black background intensity.
+/// Black background intensity. 
+/// Range => 0 to 1
 var backgroundDarkness: Double
 
 @Binding var isVisible: Bool

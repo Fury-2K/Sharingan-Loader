@@ -1,6 +1,6 @@
 //
 //  SharinganLoader.swift
-//  ShariganLoader
+//  SharinganLoader
 //
 //  Created by Manas Aggarwal on 28/05/21.
 //
@@ -8,30 +8,40 @@
 import SwiftUI
 
 public struct SharinganLoader: View {
+    /// Time taken for the eye to complete 1 full rotation.
+    private var animationDuration: Double
+    /// Black background intensity.
+    private var backgroundDarkness: Double
+    /// Switch to repeat mangekyou animation infinitely.
+    private var repeatMangekyouAnimation: Bool
+    
+    @Binding private var isVisible: Bool
+    
     /// Diameter of the sharingan eye.
     @State private var diameter: CGFloat
-    /// Time taken for the eye to complete 1 full rotation.
-    var animationDuration: Double
-    /// Black background intensity.
-    var backgroundDarkness: Double
-    
-    @Binding var isVisible: Bool
-    
     @State private var rotationDegree: Double = 0
     @State private var tomoe1Opacity: Double = 0
     @State private var tomoe2Opacity: Double = 0
     @State private var isMangekyou: Bool = false
+    
+    private var bounceIntensity: CGFloat
+    private var oldDiameterValue: CGFloat
     
     // MARK: - Initialization
     
     public init(diameter: CGFloat = 100,
                 animationDuration: Double = 1,
                 backgroundDarkness: Double = 0.2,
-                isVisible: Binding<Bool>) {
+                isVisible: Binding<Bool>) {//,
+//                repeatMangekyouAnimation: Bool = true) {
         self.diameter = diameter
         self.animationDuration = animationDuration
         self.backgroundDarkness = backgroundDarkness
         self._isVisible = isVisible
+        self.repeatMangekyouAnimation = false//repeatMangekyouAnimation
+        
+        self.bounceIntensity = diameter * 0.3
+        self.oldDiameterValue = diameter
     }
     
     // MARK: - View
@@ -40,12 +50,12 @@ public struct SharinganLoader: View {
         guard isVisible else {return AnyView(EmptyView()) }
         return AnyView(
             ZStack {
-                // Background
+                // MARK: Background
                 Color.black
                     .opacity(0.5)
                     .ignoresSafeArea()
                 
-                // Loader
+                // MARK: Loader View
                 ZStack {
                     Circle()
                         .frame(width: diameter, height: diameter, alignment: .center)
@@ -61,7 +71,7 @@ public struct SharinganLoader: View {
                         .frame(width: diameter * 0.969, height: diameter * 0.969, alignment: .center)
                         .animation(.interpolatingSpring(stiffness: 10, damping: 2))
                     
-                    // Inner ring
+                    // MARK: Inner Eye
                     ZStack {
                         Circle()
                             .foregroundColor(.black)
@@ -72,6 +82,12 @@ public struct SharinganLoader: View {
                             .foregroundColor(.shariRed)
                             .frame(width: diameter * 0.606, height: diameter * 0.606, alignment: .center)
                         
+                        /// First tomoe
+                        TomoeView(diameter: $diameter, isMangekyou: $isMangekyou)
+                            .rotationEffect(.degrees(150))
+                            .offset(x: isMangekyou ? 0 : -(diameter * 0.196), y: isMangekyou ? 0 : -(diameter * 0.257))
+                        
+                        /// Second tomoe
                         TomoeView(diameter: $diameter, isMangekyou: $isMangekyou)
                             .rotationEffect(.degrees(30))
                             .offset(x: isMangekyou ? 0 : -(diameter * 0.196), y: isMangekyou ? 0 : diameter * 0.257)
@@ -84,6 +100,7 @@ public struct SharinganLoader: View {
                                 }
                             }
                         
+                        /// Thrid tomoe
                         TomoeView(diameter: $diameter, isMangekyou: $isMangekyou)
                             .rotationEffect(.degrees(-90))
                             .offset(x: isMangekyou ? 0 : diameter * 0.318, y: 0)
@@ -96,19 +113,14 @@ public struct SharinganLoader: View {
                                 }
                             }
                         
-                        TomoeView(diameter: $diameter, isMangekyou: $isMangekyou)
-                            .rotationEffect(.degrees(150))
-                            .offset(x: isMangekyou ? 0 : -(diameter * 0.196), y: isMangekyou ? 0 : -(diameter * 0.257))
-                        
+                        /// Inner circle
                         Circle()
                             .foregroundColor(isMangekyou ? .shariRed : .black)
                             .frame(width: diameter * 0.151, height: diameter * 0.151, alignment: .center)
                     }
                     .onAppear() {
-                        withAnimation(Animation.easeOut(duration: animationDuration).repeatForever(autoreverses: false)) {
-                            rotationDegree -= 360
-                        }
                         addRotationAnimation()
+                        transformToMangekyou()
                         addMangekyouSpringAnimation()
                     }
                     .rotationEffect(.degrees(rotationDegree))
@@ -118,22 +130,28 @@ public struct SharinganLoader: View {
     }
     
     private func addRotationAnimation() {
-        Timer.scheduledTimer(withTimeInterval: TimeInterval(animationDuration * 2.5), repeats: false) { _ in
-            withAnimation(Animation.easeIn(duration: animationDuration * 0.2)) {
-                diameter = diameter * 0.7
+        withAnimation(Animation.easeOut(duration: animationDuration).repeatForever(autoreverses: false)) {
+            rotationDegree -= 360
+        }
+    }
+    
+    private func transformToMangekyou() {
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(animationDuration * 4), repeats: repeatMangekyouAnimation) { _ in
+            withAnimation(Animation.easeInOut(duration: animationDuration * 0.5)) {
+                isMangekyou.toggle()
             }
         }
     }
     
     private func addMangekyouSpringAnimation() {
-        Timer.scheduledTimer(withTimeInterval: TimeInterval(animationDuration * 3), repeats: false) { _ in
-            withAnimation(Animation.easeInOut(duration: animationDuration)) {
-                isMangekyou.toggle()
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(animationDuration * 3.5), repeats: repeatMangekyouAnimation) { _ in
+            withAnimation(Animation.easeIn(duration: animationDuration * 0.2)) {
+                diameter -= bounceIntensity
             }
         }
-        Timer.scheduledTimer(withTimeInterval: TimeInterval(animationDuration * 2.7), repeats: false) { _ in
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(animationDuration * 3.7), repeats: repeatMangekyouAnimation) { _ in
             withAnimation(Animation.easeOut(duration: animationDuration * 0.3)) {
-                diameter = diameter * 1.3
+                diameter = oldDiameterValue
             }
         }
     }
