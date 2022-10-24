@@ -30,7 +30,7 @@ Sharingan | Mangekyou Sharingan
 **The project is built supporting iOS 14 and above.**
 
 ## How to use?
-<img align="right" src="/Resources/mangekyou.gif" height="500">
+<img align="right" src="/Resources/mangekyou.gif"  width="300">
 
 First add the project using Swift Package Manager like this - 
 ```
